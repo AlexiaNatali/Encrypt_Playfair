@@ -9,7 +9,7 @@ class PlayfairCipher {
     generateMatrix(keyword) {
         let uniqueKeyword = '';
         for (let char of keyword.toUpperCase()) {
-            if (!uniqueKeyword.includes(char) && char !== 'J') {
+            if (!uniqueKeyword.includes(char) && char !== 'J' && char !=='Ñ') {
                 uniqueKeyword += char;
             }
         }
@@ -38,7 +38,7 @@ class PlayfairCipher {
 
     preprocessMessage(message) {
         let processedMessage = '';
-        message = message.toUpperCase().replace(/J/g, 'I').replace(/[^A-Z]/g, '');
+        message = message.toUpperCase().replace(/J/g, 'I').replace(/[^A-Z]/g, '').replace(/Ñ/g, '');
 
         for (let i = 0; i < message.length; i += 2) {
             let first = message[i];
